@@ -1,0 +1,49 @@
+@mainWidth: 320px;
+@mainHeight: 350px;
+
+*{
+	margin: 0;
+	padding: 0;
+	font-family: "Microsoft YaHei";
+}
+
+body {
+	width: 100%;
+	height: 100%;
+	background-color: #314E54;
+}
+form{
+	color: #000;
+}
+.mainer {
+	width: @mainWidth;
+	height: @mainHeight;
+	background-color: #fff;
+	border-radius: 5px;
+	box-shadow: 0 0 10px #333;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -(@mainHeight/2);
+	margin-left: -(@mainWidth/2);
+
+	.form-group{
+		padding-top: 20px;
+
+		label{
+			text-align: left;
+			font-weight: normal;
+		}
+
+		width: 60%;
+		margin: 0 auto;
+	}
+
+	button{
+		width: 60%;
+		position: relative;
+		left: 50%;
+		top:20px;
+		margin-left: -(@mainWidth * 0.3);
+	}
+}

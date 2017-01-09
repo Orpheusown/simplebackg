@@ -1,0 +1,97 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Microsoft YaHei";
+}
+body {
+  width: 100%;
+  height: 100vh;
+  background-color: #DFDFDF;
+}
+.header {
+  width: 100%;
+  height: 70px;
+  background-color: #314E54;
+  position: absolute;
+  top: 0;
+}
+.header ul {
+  height: 100%;
+  width: 1000px;
+  margin: 0 auto;
+}
+.header ul li {
+  width: 150px;
+  line-height: 70px;
+  color: #fff;
+  font-size: 20px;
+  list-style-type: none;
+  text-align: center;
+  float: left;
+  cursor: pointer;
+}
+.header ul li:last-child {
+  float: right;
+}
+.header ul li.active {
+  color: #77D7A9;
+  background-color: #333;
+}
+.edit {
+  display: none;
+  width: 1000px;
+  position: absolute;
+  top: 70px;
+  left: 50%;
+  margin-left: -500px;
+}
+.edit form {
+  padding: 10px;
+  background-color: #fff;
+}
+.edit form .form-group {
+  width: inherit;
+  margin-top: 5px;
+  overflow: hidden;
+  padding: 10px 5px;
+}
+.edit form .form-group label {
+  font-family: "Microsoft YaHei";
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 30px;
+  float: left;
+  margin-left: 10px;
+}
+.edit form .form-group input {
+  float: left;
+  width: 500px;
+}
+.edit form .form-group textarea {
+  width: 900px;
+}
+.edit form button {
+  width: 200px;
+  margin-left: 10px;
+}
+.edit form button:last-child {
+  float: right;
+  margin-right: 20px;
+}
+.showlist {
+  width: 1000px;
+  position: absolute;
+  top: 70px;
+  left: 50%;
+  margin-left: -500px;
+  min-height: 500px;
+  background-color: #fff;
+}
+.showlist table {
+  table-layout: fixed;
+}
+.showlist table tr th {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
