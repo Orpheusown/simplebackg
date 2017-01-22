@@ -15,6 +15,14 @@
 	left: 50%;
 	margin-left: -(@mainWidth/2);
 }
+.button(){
+	width: 200px;
+	margin-left: 10px;
+	&:last-child{
+		float: right;
+		margin-right: 20px;
+	}
+}
 
 *{
 	margin: 0;
@@ -94,15 +102,11 @@ body{
 			}
 		}
 		button{
-			width: 200px;
-			margin-left: 10px;
-			&:last-child{
-				float: right;
-				margin-right: 20px;
+			.button();
 			}
 		}
-	}
 }
+
 .showlist{
 	
 	// display: none;
@@ -119,9 +123,11 @@ body{
 				overflow: hidden;
  				white-space: nowrap;
   				text-overflow: ellipsis;
-				
 			}
 		}
+	}
+	button{
+		.button();
 	}
 
 }

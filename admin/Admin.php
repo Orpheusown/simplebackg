@@ -1,7 +1,7 @@
 <?php
 
 	session_start();
-    
+
     //引用数据库信息文件
     require_once '../DBinfo.php';
 
@@ -15,6 +15,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta HTTP-EQUIV="pragma" CONTENT="no-cache">
+	<meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate"> 
+	<meta HTTP-EQUIV="expires" CONTENT="0">
 	<title>Admin Ctroller</title>
 	<link rel="stylesheet" type="text/css" href="static/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="static/css/style.css">
@@ -86,10 +89,11 @@ TABLE;
 					$num--;
 				}
 
-
 			?>
 			</tbody>
 		</table>
+		<button class="btn btn-info btn-lg" onclick="window.location.href='../index.php'">返回首页</button>
+		<button class="btn btn-primary btn-lg" onclick="window.location.href='Admin.php'">刷新</button>
 	</div>
 
 <script type="text/javascript" src="lib/jquery-1.8.1.min.js"></script>
@@ -127,27 +131,28 @@ TABLE;
 </html>
 <?php
 
-$dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
-if (isset($_POST['submit'])) {
+	if (isset($_POST['submit'])) {
 
-    $title = $_POST['title'];
-    $author = $_POST['author'];
-    $releaseTime = $_POST['releaseTime'];
-    $content = $_POST['content'];
+	    $title = $_POST['title'];
+	    $author = $_POST['author'];
+	    $releaseTime = $_POST['releaseTime'];
+	    $content = $_POST['content'];
 
-    $query = "INSERT INTO cnta_news (title,author,releaseTime,content) VALUES ('$title','$author','$releaseTime','$content')";
-    $data = mysqli_query($dbc, $query);	
-    
-     if ($data) {
-	// 把内容插入数据库
-		echo "<script type='text/javascript'>alert('发布成功！');</script>";
-		mysqli_close($dbc);
-		die();
+	    $query = "INSERT INTO cnta_news (title,author,releaseTime,content) VALUES ('$title','$author','$releaseTime','$content')";
+	    
+	    $data = mysqli_query($link, $query);		// 把内容插入数据库
+
+	     if ($data) {
+
+	     		$_SESSION['num'] = 1;
+				echo "<script type='text/javascript'>alert('发布成功！');location.href=\"Admin.php\"</script>";
+				mysqli_close($link);
+				die();
+		}
+		else{
+			echo "<script type='text/javascript'>alert('发布失败！');</script>".mysqli_connect_error();;
+		}
 	}
-	else{
-		echo "<script type='text/javascript'>alert('发布失败！');</script>".mysqli_connect_error();;
-	}
-}
 
 ?>

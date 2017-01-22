@@ -19,7 +19,7 @@
     	echo <<< wrong
         <script type='text/javascript'>
         	alert('重复密码错误！');
-        	window.location.href='index.html';
+        	window.location.href='login.html';
         	$('input').val();
         </script>
 wrong;
@@ -39,7 +39,7 @@ wrong;
         </script>
 success;
     }else{
-        echo "<script type='text/javascript'>alert('用户名或密码错误！');window.location.href='index.html';$('input').val();</script>";
+        echo "<script type='text/javascript'>alert('用户名或密码错误！');window.location.href='login.html';$('input').val();</script>";
     }
 
 	mysqli_free_result($res);
